@@ -4,4 +4,4 @@ import random
 animals = ["Dog", "Cat", "Eagle"]
 adjectives = ["Curious", "Stinky", "Smart"]
 name = input("What's your name?")
-print("Hello " +f"{name}" + "," + " " + "your codename is " + f"{random.choice(adjectives)}" + " " + f"{random.choice(animals)}" + ".")
+print("Hello " +f"{name}" + "," + " " + "your codename is : " + f"{random.choice(adjectives)}" + " " + f"{random.choice(animals)}" + ".")
