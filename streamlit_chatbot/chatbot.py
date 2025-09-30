@@ -59,10 +59,9 @@ def main():
         
         # Add user message to history
         st.session_state.messages.append({"role": "user", "content": prompt})
-        
-        # Get Gemini response
-        response = get_gemini_response(prompt)
 
+        # Get Gemini response with persona
+        response = get_gemini_response(prompt, persona_instructions)
         
         # Display assistant response
         with st.chat_message("assistant"):
