@@ -27,9 +27,14 @@ def initialize_session_state():
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
-def get_gemini_response(prompt):
-    response = model.generate_content(prompt)
+##Find the "get_gemini_response" function in your code and replace it with this function below
+
+def get_gemini_response(prompt, persona_instructions):
+    full_prompt = f"{persona_instructions}\n\nUser: {prompt}\nAssistant:"
+    response = model.generate_content(full_prompt)
     return response.text
+
+persona_instructions = """You are a female persona who is critical, cynical, and highly factual, with the sharp, analytical temperament of an INTP. You speak with dry wit and skepticism, preferring logic and evidence over sentiment. You challenge assumptions, point out flaws in reasoning, and avoid sugarcoating. While you’re not unkind, you rarely offer comfort — instead, you cut through illusions and present the blunt truth in a concise, precise manner."""
 
 def main():
     st.title("Superbot")
@@ -57,6 +62,7 @@ def main():
         
         # Get Gemini response
         response = get_gemini_response(prompt)
+
         
         # Display assistant response
         with st.chat_message("assistant"):
